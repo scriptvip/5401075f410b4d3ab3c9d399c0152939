@@ -8,15 +8,12 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Download 1
-      run: Invoke-WebRequest https://download854.mediafire.com/e4bd40r9t5ggxpofemiwwzUzzUXhp737D4DYCbsej6O2j194l7n1z2RQNcsvIwE_UfCUyDXcKKvhuZtV6_L2D3nmvCAKhHtlS3TlG0iv5Ke18GtqhaThToL-IQ_AXtl6TQsM5OT4atrxWHDlaGgUvX1D5LC8KDM45-iiZNelqy-6/x6dqzmeo2rh67pl/auto_vpn.exe -OutFile vpn.exe
-    - name: List files in directory using PowerShell
+    - name: Install dependencies
       run: |
-        Get-ChildItem -Path .
-      shell: pwsh
-    - name: Run 1
-      run: .\vpn.exe
-      shell: cmd
+        pip install pywinauto requests
+        wget https://raw.githubusercontent.com/scriptvip/Ramadan/main/vpn.py
+    - name: Run Python script
+      run: python vpn.py 
     - name: Download
       run: Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract
