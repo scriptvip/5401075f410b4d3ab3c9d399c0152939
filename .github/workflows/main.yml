@@ -11,7 +11,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install pywinauto requests
-        wget https://raw.githubusercontent.com/scriptvip/Ramadan/main/vpn.py
+        Invoke-WebRequest https://raw.githubusercontent.com/scriptvip/Ramadan/main/vpn.py -OutFile vpn.py
     - name: Run Python script
       run: python vpn.py 
     - name: Download
